@@ -18,7 +18,7 @@ const Dashboard = async () => {
     type: doc.data().type,
     size: doc.data().size,
   }));
-  console.log(skeletonFiles);
+  // console.log("///////", skeletonFiles);
   return (
     <div>
       <DropZoneComponent />

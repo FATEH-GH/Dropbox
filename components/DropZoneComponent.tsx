@@ -36,14 +36,13 @@ const DropZoneComponent = () => {
     setLoading(true);
     const docRef = await addDoc(collection(db, "users", user.id, "file"), {
       userId: user.id,
-      fileName: selectedFile.name,
+      filename: selectedFile.name,
       fullName: user.fullName,
       profileImg: user.imageUrl,
       timestamp: serverTimestamp(),
       type: selectedFile.type,
       size: selectedFile.size,
     });
-
     const imageRef = ref(storage, `users/${user.id}/file/${docRef.id}`);
 
     uploadBytes(imageRef, selectedFile).then(async (snapshot) => {
