@@ -17,9 +17,12 @@ import { useUser } from "@clerk/nextjs";
 import { deleteObject, ref } from "firebase/storage";
 import { db, storage } from "@/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
+import { useToast } from "./ui/use-toast";
 
 export function DeleteModal() {
   const { user } = useUser();
+
+  const { toast } = useToast();
 
   const [isDeleteModalOpen, setIsDeleteModalOpen, fileId, setFileId] =
     useAppStore((state) => [
@@ -42,6 +45,10 @@ export function DeleteModal() {
           });
         })
         .finally(() => {
+          toast({
+            variant: "destructive",
+            title: "File Deleted!",
+          });
           setIsDeleteModalOpen(false);
         });
     } catch (error) {
@@ -51,11 +58,8 @@ export function DeleteModal() {
   return (
     <Dialog
       open={isDeleteModalOpen}
-      onOpenChange={() => {
-        isDeleteModalOpen
-          ? setIsDeleteModalOpen(false)
-          : setIsDeleteModalOpen(true);
-        console.log("why not ");
+      onOpenChange={(isopen) => {
+        setIsDeleteModalOpen(isopen);
       }}
     >
       <DialogContent className="sm:max-w-md">
@@ -69,7 +73,7 @@ export function DeleteModal() {
         <div className="flex space-x-2 py-3">
           <Button
             size="sm"
-            className="px-3 flex-1"
+            className="px-3 flex-1 border-2"
             variant={"ghost"}
             onClick={() => setIsDeleteModalOpen(false)}
           >
@@ -80,6 +84,7 @@ export function DeleteModal() {
             size="sm"
             className="px-3 flex-1"
             onClick={() => deleteFile()}
+            variant={"destructive"}
           >
             <span className=" font-bold">Delete</span>
           </Button>

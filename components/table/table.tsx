@@ -105,7 +105,7 @@ export function DataTable<TData, TValue>({
                             (row.original as FileProps).filename
                           );
                         }}
-                        className="underline flex items-center text-blue-500"
+                        className="underline flex items-center cursor-pointer text-blue-500"
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
