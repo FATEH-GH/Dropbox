@@ -40,6 +40,7 @@ export function RenameModal() {
       filename: input,
     });
     toast({
+      variant: "updated",
       title: "Filename updated",
     });
     setIsRenameModalOpen(false);
