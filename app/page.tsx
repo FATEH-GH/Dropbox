@@ -59,7 +59,7 @@ export default function Home() {
         <MotionDiv
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="bg-gray-600 dark:bg-slate-800 h-full p-10"
         >
           <video autoPlay loop muted className="rounded-lg">
@@ -75,7 +75,7 @@ export default function Home() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, ease: "easeOut" }}
-        className="border-4 border-red-600 m-6 sm:m-10 flex flex-col items-center justify-center rounded-xl max-w-[50%] "
+        className="border-4 border-red-600 m-6 sm:m-10 flex flex-col items-center justify-center rounded-xl sm:max-w-[50%] "
       >
         <p className="text-center font-bold text-xl pt-5 flex gap-4">
           Disclaimer
