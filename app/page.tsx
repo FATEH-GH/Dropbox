@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 
-import { motion } from "framer-motion";
+import { AlertTriangle } from "lucide-react";
 import {
   MotionDiv,
   MotionH1,
@@ -26,7 +26,7 @@ const item = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex flex-col items-center justify-center">
       <div className="flex flex-col lg:flex-row items-center bg-gray-600 dark:bg-slate-800 ">
         <MotionDiv
           variants={container}
@@ -50,7 +50,7 @@ export default function Home() {
           <MotionLink
             variants={item}
             href="/dashboard"
-            className="flex cursor-pointer font-bold bg-blue-500 p-5 w-fit group border rounded-xl"
+            className="flex cursor-pointer font-bold bg-blue-500 p-5 w-fit group  rounded-xl"
           >
             Try it for free!
             <ArrowRight className="ml-10 group-hover:translate-x-2 duration-200" />
@@ -75,14 +75,22 @@ export default function Home() {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, ease: "easeOut" }}
+        className="border-4 border-red-600 m-6 sm:m-10 flex flex-col items-center justify-center rounded-xl max-w-[50%] "
       >
-        <p className="text-center font-bold text-xl pt-5">Disclaimer</p>
-        <p className="text-center font-light p-2">
+        <p className="text-center font-bold text-xl pt-5 flex gap-4">
+          Disclaimer
+          <AlertTriangle className="bg" />
+        </p>
+        <p className="p-2">
           this website is made for informational and educational purposes only.
           I do not own or affiliate with Dropbox or/and any of its subsidiaries
-          in any form. Copyright Disclamer under section 107 of the Copyright
-          Act 1976, allowance is made for &quot;fair use&quot; of this website
-          for showcasing skills of building nice websites
+          in any form (Copyright Disclamer under section 107 of the Copyright
+          Act 1976).
+          <br />
+          <span className="font-bold">
+            You Can safely sign up for an account, once you logged out your
+            informations will be deleted, enjoy!!! :).
+          </span>
         </p>
       </MotionDiv>
     </main>
